@@ -1,0 +1,10 @@
+spring.profiles.active: development
+---
+spring:
+  profiles: development
+  datasource:
+    url: jdbc:mysql://localhost:3307/api
+    username: root
+    password: root
+    platform: mysql
+

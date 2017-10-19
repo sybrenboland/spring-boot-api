@@ -1,14 +1,17 @@
 package org.shboland.service;
 
 import org.shboland.db.hibernate.bean.Person;
+import org.shboland.repo.PersonRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class PersonService {
 
+    @Autowired
+    private PersonRepository personRepository;
+
     public Person fetchPerson(String personId) {
-        Person person = new Person();
-        person.setId(new Long(personId));
-        return person;
+        return personRepository.findOne(Long.valueOf(personId));
     }
 }
