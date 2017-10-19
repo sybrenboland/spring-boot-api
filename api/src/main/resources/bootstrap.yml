@@ -1,0 +1,8 @@
+spring.profiles.active: development
+---
+spring:
+  profiles: development
+  application:
+    name: spring-boot-api
+server:
+  port: 8888
