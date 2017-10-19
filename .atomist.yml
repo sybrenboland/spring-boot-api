@@ -1,0 +1,19 @@
+---
+kind: "operation"
+client: "com.atomist:rug"
+version: "1.0.0-m.7"
+editor:
+  name: "AddBeanClass"
+  group: "shboland"
+  artifact: "shboland-rugs"
+  version: "0.1.0"
+  origin:
+    repo: "git@github.com:sybrenboland/spring-boot-api.git"
+    branch: "master"
+    sha: "0709443"
+  parameters:
+    - "release": "1.0.0"
+    - "className": "Person"
+    - "moduleName": "persistence"
+    - "basePackage": "org.shboland"
+
