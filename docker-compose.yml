@@ -1,0 +1,7 @@
+postgres:
+  image: postgres:9.6.3
+  ports:
+    - 5482:5432
+  environment:
+    POSTGRES_USER: pgroot
+    POSTGRES_PASSWORD: pgpass
