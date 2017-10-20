@@ -1,0 +1,14 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.1"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.1
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.1.xsd">
+ 
+  <changeSet id="create_person" author="shboland">
+    <createTable tableName="PERSON">
+      <column name="id" type="int">
+        <constraints primaryKey="true" nullable="false" />
+      </column>
+    </createTable>
+  </changeSet>
+</databaseChangeLog>
