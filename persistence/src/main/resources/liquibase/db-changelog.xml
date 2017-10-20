@@ -6,7 +6,7 @@
  
   <changeSet id="create_person" author="shboland">
     <createTable tableName="PERSON">
-      <column name="id" type="int">
+      <column name="id" type="int" autoIncrement="true">
         <constraints primaryKey="true" nullable="false" />
       </column>
     </createTable>
