@@ -1,5 +1,6 @@
 package org.shboland.service;
 
+import org.shboland.convert.PersonConverter;
 import org.shboland.db.hibernate.bean.Person;
 import org.shboland.db.repo.PersonRepository;
 import org.shboland.domain.JsonPerson;
@@ -12,19 +13,26 @@ public class PersonService {
     @Autowired
     private PersonRepository personRepository;
 
-    public Person fetchPerson(String personId) {
-        return personRepository.findOne(Long.valueOf(personId));
+    @Autowired
+    private PersonConverter personConverter;
+
+    public JsonPerson fetchPerson(long personId) {
+        Person person = personRepository.findOne(personId);
+
+        return personConverter.toJson(person);
     }
 
-    public Person createPerson(JsonPerson jsonPerson) {
-        return personRepository.save(new Person());
+    public JsonPerson createPerson(JsonPerson jsonPerson) {
+        Person person = personRepository.save(new Person());
+
+        return personConverter.toJson(person);
     }
 
-    public void save(Person currentPerson) {
-        personRepository.save(currentPerson);
-    }
+    public JsonPerson updatePerson(long personId, JsonPerson jsonPerson) {
+        Person currentPerson = personRepository.findOne(personId);
 
-    public Person updatePerson(Person currentPerson, JsonPerson jsonPerson) {
-        return currentPerson;
+        Person newPerson = personRepository.save(currentPerson);
+
+        return personConverter.toJson(newPerson);
     }
 }
