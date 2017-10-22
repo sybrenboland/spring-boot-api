@@ -12,11 +12,14 @@ import java.util.Optional;
 @Service
 public class PersonService {
 
-    @Autowired
-    private PersonRepository personRepository;
+    private final PersonRepository personRepository;
+    private final PersonConverter personConverter;
 
     @Autowired
-    private PersonConverter personConverter;
+    public PersonService(PersonRepository personRepository, PersonConverter personConverter) {
+        this.personRepository = personRepository;
+        this.personConverter = personConverter;
+    }
 
     public Optional<JsonPerson> fetchPerson(long personId) {
         Person person = personRepository.findOne(personId);

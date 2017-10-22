@@ -15,8 +15,12 @@ import java.util.Optional;
 @RestController
 public class PersonController implements IPersonController {
 
+    private final PersonService personService;
+
     @Autowired
-    private PersonService personService;
+    public PersonController(PersonService personService) {
+        this.personService = personService;
+    }
 
     @Override
     public ResponseEntity<JsonPerson> getPerson(@PathVariable long personId) {
