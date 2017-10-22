@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 public interface IPersonController {
 
     @RequestMapping(path = "/{personId}", method = RequestMethod.GET)
-    JsonPerson getPerson(@PathVariable long personId);
+    ResponseEntity<JsonPerson> getPerson(@PathVariable long personId);
 
     @RequestMapping(value = "", method = RequestMethod.POST)
     ResponseEntity postPerson(@RequestBody JsonPerson person);

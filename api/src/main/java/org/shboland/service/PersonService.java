@@ -7,6 +7,8 @@ import org.shboland.domain.JsonPerson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class PersonService {
 
@@ -16,10 +18,10 @@ public class PersonService {
     @Autowired
     private PersonConverter personConverter;
 
-    public JsonPerson fetchPerson(long personId) {
+    public Optional<JsonPerson> fetchPerson(long personId) {
         Person person = personRepository.findOne(personId);
 
-        return personConverter.toJson(person);
+        return person == null ? Optional.empty() : Optional.of(personConverter.toJson(person));
     }
 
     public JsonPerson createPerson(JsonPerson jsonPerson) {
