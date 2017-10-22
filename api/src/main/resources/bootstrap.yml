@@ -6,3 +6,4 @@ spring:
     name: spring-boot-api
 server:
   port: 8888
+  contextPath: /api
