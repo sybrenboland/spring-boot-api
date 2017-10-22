@@ -19,6 +19,7 @@
         <docker.image.prefix>shboland</docker.image.prefix>
         <docker.plugin.version>0.4.14</docker.plugin.version>
         <jackson.version>2.9.2</jackson.version>
+        <springfox.version>2.4.0</springfox.version>
     </properties>
 
     <dependencies>
@@ -68,6 +69,16 @@
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-annotations</artifactId>
                 <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${springfox.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${springfox.version}</version>
             </dependency>
 
             <dependency>
