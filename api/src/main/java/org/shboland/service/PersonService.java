@@ -19,4 +19,12 @@ public class PersonService {
     public Person createPerson(JsonPerson jsonPerson) {
         return personRepository.save(new Person());
     }
+
+    public void save(Person currentPerson) {
+        personRepository.save(currentPerson);
+    }
+
+    public Person updatePerson(Person currentPerson, JsonPerson jsonPerson) {
+        return currentPerson;
+    }
 }

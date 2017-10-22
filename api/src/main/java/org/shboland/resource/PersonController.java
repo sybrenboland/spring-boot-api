@@ -33,5 +33,17 @@ public class PersonController implements IPersonController {
 
         return ResponseEntity.created(location).build();
     }
+
+    @Override
+    public ResponseEntity putPerson(@PathVariable String personId, @RequestBody JsonPerson jsonPerson) {
+
+        Person currentPerson = personService.fetchPerson(personId);
+
+        currentPerson = personService.updatePerson(currentPerson, jsonPerson);
+
+        personService.save(currentPerson);
+
+        return ResponseEntity.ok(currentPerson);
+    }
 }
 

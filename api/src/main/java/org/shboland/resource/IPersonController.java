@@ -13,4 +13,7 @@ public interface IPersonController {
 
     @RequestMapping(value = "", method = RequestMethod.POST)
     ResponseEntity postPerson(@RequestBody JsonPerson person);
+
+    @RequestMapping(value = "/{personId}", method = RequestMethod.PUT)
+    ResponseEntity putPerson(@PathVariable("personId") String personId, @RequestBody JsonPerson jsonPerson);
 }
